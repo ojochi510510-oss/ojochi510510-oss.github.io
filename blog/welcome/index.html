@@ -1,4 +1,15 @@
-<!DOCTYPE html><html lang="ja" data-theme="dark" data-astro-cid-37fxchfa> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ojochiの制作ログと更新情報をまとめる個人ホームページ。"><title>サイトを作り直した記録 | ojochiの作業部屋</title><link rel="stylesheet" href="/_astro/_slug_.BhAdOvud.css">
+<!DOCTYPE html><html lang="ja" data-theme="dark" data-astro-cid-37fxchfa> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ojochiの制作ログと更新情報をまとめる個人ホームページ。"><title>サイトを作り直した記録 | ojochiの作業部屋</title><script>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.dataset.theme = stored;
+          }
+        } catch {
+          // noop
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/_slug_.CcD_X_ny.css">
 <style>.post-body[data-astro-cid-4sn4zg3r]{padding:1.4rem}h1[data-astro-cid-4sn4zg3r]{margin:0;line-height:1.4}.meta[data-astro-cid-4sn4zg3r]{margin-top:.35rem;color:var(--muted)}.tags[data-astro-cid-4sn4zg3r]{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1rem}.tags[data-astro-cid-4sn4zg3r] span[data-astro-cid-4sn4zg3r]{border:1px solid var(--border);border-radius:999px;padding:.12rem .55rem;font-size:.82rem;color:var(--muted)}
 </style></head> <body data-astro-cid-37fxchfa> <canvas id="rain-overlay" aria-hidden="true" data-astro-cid-lxvrriyt></canvas> <script>
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -24,7 +35,7 @@
             y: Math.random() * canvas.height,
             len: 4 + Math.random() * 6,
             speed: 0.45 + Math.random() * 0.95,
-            alpha: 0.12 + Math.random() * 0.16,
+            alpha: 0.1 + Math.random() * 0.16,
           });
         }
       };
@@ -33,7 +44,7 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         for (const d of drops) {
-          ctx.strokeStyle = `rgba(164,178,206,${d.alpha})`;
+          ctx.strokeStyle = `rgba(154,173,147,${d.alpha})`;
           ctx.beginPath();
           ctx.moveTo(d.x, d.y);
           ctx.lineTo(d.x + 0.8, d.y + d.len);
@@ -56,32 +67,50 @@
       window.addEventListener('pagehide', () => window.cancelAnimationFrame(rafId), { once: true });
     }
   }
-</script>  <div class="shell" data-astro-cid-37fxchfa> <header class="site-header" data-astro-cid-3ef6ksr2> <div class="container header-wrap" data-astro-cid-3ef6ksr2> <a href="/" class="logo" data-astro-cid-3ef6ksr2>ojochiの作業部屋</a> <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" data-astro-cid-3ef6ksr2>
+</script>  <div class="shell" data-astro-cid-37fxchfa> <header class="site-header" data-astro-cid-3ef6ksr2> <div class="container header-inner" data-astro-cid-3ef6ksr2> <a href="/" class="site-title" data-astro-cid-3ef6ksr2>ojochiの作業部屋</a> <div class="header-actions" data-astro-cid-3ef6ksr2> <button id="sidebar-toggle" class="header-button" type="button" aria-expanded="false" aria-controls="sidebar-nav-panel" data-astro-cid-3ef6ksr2>
 Menu
-</button> <nav id="site-nav" class="site-nav" data-open="false" data-astro-cid-3ef6ksr2> <div class="nav-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2>Home</a><a href="/blog" data-astro-cid-3ef6ksr2>Blog</a><a href="/works" data-astro-cid-3ef6ksr2>Works</a><a href="/news" data-astro-cid-3ef6ksr2>News</a><a href="/note" data-astro-cid-3ef6ksr2>Note</a><a href="/links" data-astro-cid-3ef6ksr2>Links</a> </div> <div class="nav-tools" data-astro-cid-3ef6ksr2> <div class="social" aria-label="SNS links" data-astro-cid-3ef6ksr2> <a href="https://x.com/ojochi" target="_blank" rel="noreferrer" aria-label="X" data-astro-cid-3ef6ksr2>X</a><a href="https://github.com/ojochi" target="_blank" rel="noreferrer" aria-label="GH" data-astro-cid-3ef6ksr2>GH</a><a href="https://note.com/ojochi" target="_blank" rel="noreferrer" aria-label="Nt" data-astro-cid-3ef6ksr2>Nt</a> </div> <button id="theme-toggle" class="theme-toggle" aria-label="テーマ切り替え" data-astro-cid-3ef6ksr2>Theme</button> </div> </nav> </div> </header> <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('site-nav');
-
-  menuToggle?.addEventListener('click', () => {
-    const open = nav?.dataset.open === 'true';
-    if (!nav) return;
-    nav.dataset.open = String(!open);
-    menuToggle.setAttribute('aria-expanded', String(!open));
-  });
-
+</button> <button id="theme-toggle" class="header-button" type="button" aria-label="テーマ切り替え" data-astro-cid-3ef6ksr2>
+Theme
+</button> </div> </div> </header> <script>
   const root = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
+
+  const updateThemeLabel = () => {
+    if (!themeToggle) return;
+    themeToggle.textContent = root.dataset.theme === 'light' ? 'Dark' : 'Light';
+  };
+
   const stored = localStorage.getItem('theme');
   if (stored === 'light' || stored === 'dark') {
     root.dataset.theme = stored;
   }
+  updateThemeLabel();
 
-  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+  themeToggle?.addEventListener('click', () => {
     const next = root.dataset.theme === 'light' ? 'dark' : 'light';
     root.dataset.theme = next;
     localStorage.setItem('theme', next);
+    updateThemeLabel();
   });
-</script>  <main class="container page-main" data-astro-cid-37fxchfa>  <article class="card reveal post-body" data-astro-cid-4sn4zg3r> <h1 data-astro-cid-4sn4zg3r>サイトを作り直した記録</h1> <p class="meta" data-astro-cid-4sn4zg3r>2026/3/1</p> <div class="tags" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Astro</span><span data-astro-cid-4sn4zg3r>開発ログ</span> </div> <p>「ojochiの作業部屋」をAstroで立ち上げました。</p>
-<p>このブログでは、制作中の記録と振り返りを少しずつ残していきます。</p> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="container footer-inner" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>© 2026 ojochi</p> </div> </footer>  </div> <script>
+
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const sidebarPanel = document.getElementById('sidebar-nav-panel');
+
+  const setExpanded = (open) => {
+    sidebarToggle?.setAttribute('aria-expanded', String(open));
+    if (sidebarPanel) sidebarPanel.dataset.open = String(open);
+  };
+
+  sidebarToggle?.addEventListener('click', () => {
+    const open = sidebarPanel?.dataset.open === 'true';
+    setExpanded(!open);
+  });
+
+  if (window.matchMedia('(min-width: 960px)').matches) {
+    setExpanded(false);
+  }
+</script>  <div class="container app-layout" data-astro-cid-37fxchfa> <aside id="sidebar-nav-panel" class="sidebar-panel" data-open="false" data-astro-cid-37fxchfa> <nav class="sidebar card reveal" aria-label="主要メニュー" data-astro-cid-gvqsdny3> <p class="group-label" data-astro-cid-gvqsdny3>Navigation</p> <ul class="menu-list" data-astro-cid-gvqsdny3> <li data-astro-cid-gvqsdny3> <a href="/" class="" data-astro-cid-gvqsdny3> Home </a> </li><li data-astro-cid-gvqsdny3> <a href="/news" class="" data-astro-cid-gvqsdny3> News </a> </li><li data-astro-cid-gvqsdny3> <a href="/blog" class="active" aria-current="page" data-astro-cid-gvqsdny3> Blog </a> </li><li data-astro-cid-gvqsdny3> <a href="/note" class="" data-astro-cid-gvqsdny3> Note </a> </li><li data-astro-cid-gvqsdny3> <a href="/works" class="" data-astro-cid-gvqsdny3> Works </a> </li><li data-astro-cid-gvqsdny3> <a href="/links" class="" data-astro-cid-gvqsdny3> Links </a> </li> </ul> <p class="group-label sub" data-astro-cid-gvqsdny3>SNS</p> <ul class="menu-list social-list" data-astro-cid-gvqsdny3> <li data-astro-cid-gvqsdny3><a href="https://x.com/ojochi" target="_blank" rel="noreferrer" data-astro-cid-gvqsdny3>X</a></li><li data-astro-cid-gvqsdny3><a href="https://github.com/ojochi" target="_blank" rel="noreferrer" data-astro-cid-gvqsdny3>GitHub</a></li><li data-astro-cid-gvqsdny3><a href="https://note.com/ojochi" target="_blank" rel="noreferrer" data-astro-cid-gvqsdny3>note</a></li> </ul> </nav>  </aside> <main class="page-main" data-astro-cid-37fxchfa>  <article class="card reveal post-body" data-astro-cid-4sn4zg3r> <h1 data-astro-cid-4sn4zg3r>サイトを作り直した記録</h1> <p class="meta" data-astro-cid-4sn4zg3r>2026/3/1</p> <div class="tags" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Astro</span><span data-astro-cid-4sn4zg3r>開発ログ</span> </div> <p>「ojochiの作業部屋」をAstroで立ち上げました。</p>
+<p>このブログでは、制作中の記録と振り返りを少しずつ残していきます。</p> </article>  </main> </div> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="container footer-inner" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>© 2026 ojochi</p> </div> </footer>  </div> <script>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const io = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
