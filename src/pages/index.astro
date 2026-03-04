@@ -6,19 +6,20 @@ import { getAllBlog, getAllNews } from "../lib/content";
 const [allNews, allBlog] = await Promise.all([getAllNews(), getAllBlog()]);
 const latestNews = allNews.slice(0, 3);
 const latestBlog = allBlog.slice(0, 5);
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="ojochiの作業部屋">
 	<section class="section">
 		<div class="section-head">
 			<h1>News</h1>
-			<a href="/news">一覧を見る</a>
+			<a href={`${BASE_URL}news/`}>一覧を見る</a>
 		</div>
 		<div class="cards">
 			{
 				latestNews.map((item) => (
 					<Card
-						href={`/news#${item.slug}`}
+						href={`${BASE_URL}news/#${item.slug}`}
 						title={item.data.title}
 						date={item.data.date}
 						description={item.data.description}
@@ -31,13 +32,13 @@ const latestBlog = allBlog.slice(0, 5);
 	<section class="section">
 		<div class="section-head">
 			<h2>Blog</h2>
-			<a href="/blog">一覧を見る</a>
+			<a href={`${BASE_URL}blog/`}>一覧を見る</a>
 		</div>
 		<div class="cards">
 			{
 				latestBlog.map((item) => (
 					<Card
-						href={`/blog/${item.slug}`}
+						href={`${BASE_URL}blog/${item.slug}/`}
 						title={item.data.title}
 						date={item.data.date}
 						description={item.data.description}
