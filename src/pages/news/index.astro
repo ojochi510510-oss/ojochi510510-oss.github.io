@@ -20,6 +20,15 @@ const allNews = await getAllNews();
 							})}
 						</p>
 						<p class="card-description">{item.data.description}</p>
+						{
+							item.data.link && (
+								<p class="news-link-wrap">
+									<a class="news-link" href={item.data.link}>
+										ブログを読む
+									</a>
+								</p>
+							)
+						}
 					</div>
 				))
 			}

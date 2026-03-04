@@ -4,6 +4,7 @@ const commonSchema = z.object({
 	title: z.string(),
 	date: z.coerce.date(),
 	description: z.string(),
+	link: z.string().optional(),
 	draft: z.boolean().optional().default(false),
 });
 

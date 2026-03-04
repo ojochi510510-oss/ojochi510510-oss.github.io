@@ -32,11 +32,14 @@ frontmatter 例:
 title: "お知らせタイトル"
 date: 2026-03-04
 description: "お知らせの要約"
+link: "https://ojochi.github.io/blog/2026-03-04-first-post/"
 draft: false
 ---
 
 本文
 ```
+
+`link` は任意です。設定するとお知らせ欄に「ブログを読む」リンクが表示されます。
 
 ### Blogの追加
 
