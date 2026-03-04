@@ -1,4 +1,4 @@
----
+﻿---
 import Card from "../components/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getAllBlog, getAllNews } from "../lib/content";
@@ -15,18 +15,28 @@ const BASE_URL = import.meta.env.BASE_URL;
 			<h1>お知らせ</h1>
 			<a href={`${BASE_URL}news/`}>一覧を見る</a>
 		</div>
-		<div class="cards">
+		<article class="card news-summary-card">
 			{
-				latestNews.map((item) => (
-					<Card
-						href={`${BASE_URL}news/#${item.slug}`}
-						title={item.data.title}
-						date={item.data.date}
-						description={item.data.description}
-					/>
-				))
+				latestNews.length > 0 ? (
+					<ul class="news-summary-list">
+						{latestNews.map((item) => (
+							<li class="news-summary-item">
+								<p class="card-date">
+									{item.data.date.toLocaleDateString("ja-JP", {
+										year: "numeric",
+										month: "2-digit",
+										day: "2-digit",
+									})}
+								</p>
+								<p class="card-description">{item.data.description}</p>
+							</li>
+						))}
+					</ul>
+				) : (
+					<p class="card-description">まだお知らせはありません。</p>
+				)
 			}
-		</div>
+		</article>
 	</section>
 
 	<section class="section">

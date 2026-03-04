@@ -103,6 +103,36 @@ main {
 	margin: 0.5rem 0 0;
 }
 
+.news-summary-card {
+	padding: 0;
+}
+
+.news-summary-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.news-summary-item {
+	padding: 1rem;
+}
+
+.news-summary-item + .news-summary-item {
+	border-top: 1px solid #dedede;
+}
+
+.news-list-card {
+	padding: 0;
+}
+
+.news-list-item {
+	padding: 1rem;
+}
+
+.news-list-item + .news-list-item {
+	border-top: 1px solid #dedede;
+}
+
 .post {
 	background: #ffffff;
 	border: 1px solid #dedede;

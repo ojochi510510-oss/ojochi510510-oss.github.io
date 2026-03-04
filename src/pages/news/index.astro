@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllNews } from "../../lib/content";
 
@@ -8,11 +8,10 @@ const allNews = await getAllNews();
 <BaseLayout title="お知らせ | ojochiの作業部屋">
 	<section class="section">
 		<h1>お知らせ一覧</h1>
-		<div class="cards">
+		<article class="card news-list-card">
 			{
 				allNews.map((item) => (
-					<article class="card" id={item.slug}>
-						<h2 class="card-title">{item.data.title}</h2>
+					<div class="news-list-item" id={item.slug}>
 						<p class="card-date">
 							{item.data.date.toLocaleDateString("ja-JP", {
 								year: "numeric",
@@ -21,9 +20,9 @@ const allNews = await getAllNews();
 							})}
 						</p>
 						<p class="card-description">{item.data.description}</p>
-					</article>
+					</div>
 				))
 			}
-		</div>
+		</article>
 	</section>
 </BaseLayout>
