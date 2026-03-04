@@ -1,11 +1,11 @@
-﻿---
+---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllNews } from "../../lib/content";
 
 const allNews = await getAllNews();
 ---
 
-<BaseLayout title="お知らせ | ojochi縺ｮ菴懈･ｭ驛ｨ螻・>
+<BaseLayout title="お知らせ | ojochiの作業部屋">
 	<section class="section">
 		<h1>お知らせ一覧</h1>
 		<div class="cards">
@@ -27,4 +27,3 @@ const allNews = await getAllNews();
 		</div>
 	</section>
 </BaseLayout>
-
