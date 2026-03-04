@@ -114,7 +114,7 @@ main {
 }
 
 .news-summary-item {
-	padding: 1rem;
+	padding: 0.7rem 1rem;
 }
 
 .news-summary-item + .news-summary-item {
@@ -126,11 +126,22 @@ main {
 }
 
 .news-list-item {
-	padding: 1rem;
+	padding: 0.7rem 1rem;
 }
 
 .news-list-item + .news-list-item {
 	border-top: 1px solid #dedede;
+}
+
+.news-summary-item .card-date,
+.news-list-item .card-date {
+	margin: 0;
+}
+
+.news-summary-item .card-description,
+.news-list-item .card-description {
+	margin: 0.2rem 0 0;
+	line-height: 1.4;
 }
 
 .post {
