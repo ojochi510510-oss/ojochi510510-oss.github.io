@@ -41,6 +41,10 @@ draft: false
 
 `link` は任意です。設定するとお知らせ欄に「ブログを読む」リンクが表示されます。
 
+補足:
+- Blog記事を追加すると、お知らせ一覧にも自動で表示されます。
+- 手動でNewsを追加したい場合だけ `src/content/news/` に記事を作成してください。
+
 ### Blogの追加
 
 `src/content/blog/` に Markdown を追加します。

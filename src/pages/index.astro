@@ -1,9 +1,9 @@
 ﻿---
 import Card from "../components/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getAllBlog, getAllNews } from "../lib/content";
+import { getAllBlog, getUnifiedNews } from "../lib/content";
 
-const [allNews, allBlog] = await Promise.all([getAllNews(), getAllBlog()]);
+const [allNews, allBlog] = await Promise.all([getUnifiedNews(), getAllBlog()]);
 const latestNews = allNews.slice(0, 3);
 const latestBlog = allBlog.slice(0, 5);
 const BASE_URL = import.meta.env.BASE_URL;
@@ -22,17 +22,17 @@ const BASE_URL = import.meta.env.BASE_URL;
 						{latestNews.map((item) => (
 							<li class="news-summary-item">
 								<p class="card-date">
-									{item.data.date.toLocaleDateString("ja-JP", {
+									{item.date.toLocaleDateString("ja-JP", {
 										year: "numeric",
 										month: "2-digit",
 										day: "2-digit",
 									})}
 								</p>
-								<p class="card-description">{item.data.description}</p>
+								<p class="card-description">{item.description}</p>
 								{
-									item.data.link && (
+									item.link && (
 										<p class="news-link-wrap">
-											<a class="news-link" href={item.data.link}>
+											<a class="news-link" href={item.link}>
 												ブログを読む
 											</a>
 										</p>
