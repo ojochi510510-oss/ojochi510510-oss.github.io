@@ -1,0 +1,25 @@
+---
+import Card from "../../components/Card.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllBlog } from "../../lib/content";
+
+const allBlog = await getAllBlog();
+---
+
+<BaseLayout title="Blog | ojochiの作業部屋">
+	<section class="section">
+		<h1>Blog一覧</h1>
+		<div class="cards">
+			{
+				allBlog.map((item) => (
+					<Card
+						href={`/blog/${item.slug}`}
+						title={item.data.title}
+						date={item.data.date}
+						description={item.data.description}
+					/>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

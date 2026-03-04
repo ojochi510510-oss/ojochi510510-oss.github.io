@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllNews } from "../../lib/content";
+
+const allNews = await getAllNews();
+---
+
+<BaseLayout title="News | ojochiの作業部屋">
+	<section class="section">
+		<h1>News一覧</h1>
+		<div class="cards">
+			{
+				allNews.map((item) => (
+					<article class="card" id={item.slug}>
+						<h2 class="card-title">{item.data.title}</h2>
+						<p class="card-date">
+							{item.data.date.toLocaleDateString("ja-JP", {
+								year: "numeric",
+								month: "2-digit",
+								day: "2-digit",
+							})}
+						</p>
+						<p class="card-description">{item.data.description}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

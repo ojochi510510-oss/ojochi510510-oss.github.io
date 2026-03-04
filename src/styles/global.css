@@ -1,0 +1,132 @@
+:root {
+	color-scheme: light;
+	font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+	line-height: 1.6;
+	background: #f7f7f7;
+	color: #1f1f1f;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	color: #175c9c;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.container {
+	width: min(960px, calc(100% - 2rem));
+	margin: 0 auto;
+}
+
+.site-header {
+	background: #ffffff;
+	border-bottom: 1px solid #dedede;
+}
+
+.header-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem 0;
+}
+
+.site-title {
+	margin: 0;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.site-nav {
+	display: flex;
+	gap: 1rem;
+}
+
+main {
+	padding: 2rem 0 3rem;
+}
+
+.section + .section {
+	margin-top: 3rem;
+}
+
+.section-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 1rem;
+}
+
+.section-head h1,
+.section-head h2 {
+	margin: 0;
+	font-size: 1.5rem;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1rem;
+}
+
+.card {
+	padding: 1rem;
+	background: #ffffff;
+	border: 1px solid #dedede;
+	border-radius: 8px;
+}
+
+.card-title {
+	margin: 0;
+	font-size: 1.1rem;
+}
+
+.card-date {
+	margin: 0.5rem 0 0;
+	font-size: 0.9rem;
+	color: #666666;
+}
+
+.card-description {
+	margin: 0.5rem 0 0;
+}
+
+.post {
+	background: #ffffff;
+	border: 1px solid #dedede;
+	border-radius: 8px;
+	padding: 1.5rem;
+}
+
+.post-header h1 {
+	margin: 0;
+}
+
+.post-date {
+	margin: 0.5rem 0;
+	color: #666666;
+}
+
+.post-body > :first-child {
+	margin-top: 0;
+}
+
+.site-footer {
+	border-top: 1px solid #dedede;
+	background: #ffffff;
+	padding: 1rem 0;
+	font-size: 0.9rem;
+	color: #666666;
+}

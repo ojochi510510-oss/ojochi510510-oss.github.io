@@ -1,0 +1,49 @@
+---
+import Card from "../components/Card.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getAllBlog, getAllNews } from "../lib/content";
+
+const [allNews, allBlog] = await Promise.all([getAllNews(), getAllBlog()]);
+const latestNews = allNews.slice(0, 3);
+const latestBlog = allBlog.slice(0, 5);
+---
+
+<BaseLayout title="ojochiの作業部屋">
+	<section class="section">
+		<div class="section-head">
+			<h1>News</h1>
+			<a href="/news">一覧を見る</a>
+		</div>
+		<div class="cards">
+			{
+				latestNews.map((item) => (
+					<Card
+						href={`/news#${item.slug}`}
+						title={item.data.title}
+						date={item.data.date}
+						description={item.data.description}
+					/>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<h2>Blog</h2>
+			<a href="/blog">一覧を見る</a>
+		</div>
+		<div class="cards">
+			{
+				latestBlog.map((item) => (
+					<Card
+						href={`/blog/${item.slug}`}
+						title={item.data.title}
+						date={item.data.date}
+						description={item.data.description}
+					/>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>
