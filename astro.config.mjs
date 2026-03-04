@@ -3,5 +3,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ojochi.github.io',
+	site: 'https://ojochi510510-oss.github.io',
+	base: '/ojochi.github.io',
 });
