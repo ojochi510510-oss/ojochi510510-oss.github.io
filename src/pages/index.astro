@@ -13,18 +13,16 @@ const resolveLink = (link: string) =>
 
 <BaseLayout
 	title="ojochiの作業部屋"
-	description="更新情報とブログをまとめた個人サイトです。最近の作業記録や調整内容を見やすく整理しています。"
+	description="作業記録と更新情報を静かに整理した個人サイトです。"
 >
 	<section class="hero">
 		<div class="hero-copy">
-			<p class="hero-kicker">ojochi personal homepage</p>
-			<h1>更新履歴と作業メモを、軽く追える形でまとめた HP です。</h1>
-			<p class="hero-description">
-				お知らせは最新の変化を短く、Blog は作業の背景や実装内容を少し詳しく残しています。
-			</p>
+			<p class="hero-kicker">ojochi archive</p>
+			<h1>作業記録と更新履歴を、落ち着いた形で整理しています。</h1>
+			<p class="hero-summary">必要な更新だけを短く追えて、記事はあとから静かに辿れる構成です。</p>
 		</div>
 		<div class="hero-panel">
-			<p class="hero-panel-label">現在の内容</p>
+			<p class="hero-panel-label">Contents</p>
 			<ul class="hero-stats">
 				<li>
 					<strong>{allNews.length}</strong>
@@ -36,8 +34,8 @@ const resolveLink = (link: string) =>
 				</li>
 			</ul>
 			<div class="hero-actions">
-				<a class="button-link" href={`${BASE_URL}news/`}>更新を見る</a>
-				<a class="button-link button-link-secondary" href={`${BASE_URL}blog/`}>記事一覧へ</a>
+				<a class="button-link" href={`${BASE_URL}news/`}>更新一覧</a>
+				<a class="button-link button-link-secondary" href={`${BASE_URL}blog/`}>記事一覧</a>
 			</div>
 		</div>
 	</section>
