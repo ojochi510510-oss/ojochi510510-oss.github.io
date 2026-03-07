@@ -2,11 +2,11 @@
 > ojochi.github.io@0.0.1 build
 > astro build
 
-[2m00:52:09[22m [34m[content][39m Syncing content
-[2m00:52:09[22m [34m[content][39m Synced content
-[2m00:52:09[22m [34m[types][39m Generated [2m613ms[22m
-[2m00:52:09[22m [34m[build][39m output: [34m"static"[39m
-[2m00:52:09[22m [34m[build][39m mode: [34m"static"[39m
-[2m00:52:09[22m [34m[build][39m directory: [34mC:\Users\asano\OneDrive\デスクトップ\作業\HP\dist\[39m
-[2m00:52:09[22m [34m[build][39m Collecting build info...
-[2m00:52:09[22m [34m[build][39m [32m✓ Completed in 648ms.[39m
+[2m01:34:49[22m [34m[content][39m Syncing content
+[2m01:34:49[22m [34m[content][39m Synced content
+[2m01:34:49[22m [34m[types][39m Generated [2m737ms[22m
+[2m01:34:49[22m [34m[build][39m output: [34m"static"[39m
+[2m01:34:49[22m [34m[build][39m mode: [34m"static"[39m
+[2m01:34:49[22m [34m[build][39m directory: [34mC:\Users\asano\OneDrive\デスクトップ\作業\HP\dist\[39m
+[2m01:34:49[22m [34m[build][39m Collecting build info...
+[2m01:34:49[22m [34m[build][39m [32m✓ Completed in 764ms.[39m
